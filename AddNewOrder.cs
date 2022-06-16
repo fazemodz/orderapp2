@@ -32,8 +32,10 @@ namespace orderapp2
 
         private void btnSubmitOrderData_Click(object sender, EventArgs e)
         {
+            //a recuring check to insure that the value that was entered was the correct type
             if (Decimal.TryParse(txtDistance.Text, out DistanceNeededToTravel))
             {
+                //if the error text is showing disable it
                 if (lblError.Visible = true)
                 {
                     lblError.Visible = false;
@@ -50,18 +52,21 @@ namespace orderapp2
             }
             else
             {
+                //if the data type is not the desired one then throw a error 
                 lblError.Text = "A decimal value was not enterd please try again";
                 lblError.Visible = true;
             }
         }
         private async void SendData(string TotalAmount)
         {
+            //gets the data ready to be sent 
             var payload = new OrderDataToSend
             {
                 CustomerName = CustomerName,
                 Distance = DistanceNeededToTravel,
                 TotalPrice = TotalAmount
             };
+            //serializes the data as the API only accepts json data 
             var stringPayload = JsonConvert.SerializeObject(payload);
             var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
             var httpClient = new HttpClient();

@@ -16,6 +16,7 @@ namespace orderapp2
         public static string Selectedcustomer = string.Empty;
         public Form1()
         {
+            //initialises the form components 
             InitializeComponent();
         }
 
@@ -23,14 +24,18 @@ namespace orderapp2
         {
             GetAllOrders();
         }
+        //this is responsibe of getting all the data needed from the database through and API
         [STAThread]
         private async void GetAllOrders()
         {
-            
+            //creates a new client
             using var client = new HttpClient();
+            //sends request to the api
             var request = await client.GetAsync("https://college-delevery-app-api.herokuapp.com/api/v1/orders-endpoint/Get-All-Orders");
             var response = await request.Content.ReadAsStringAsync();
+            //deserializes the Json data sent from the API into a readable c# class
             var orders = JsonConvert.DeserializeObject<List<OrderInfo>>(response);
+            //binds the Deserialized json data to a data source
             BindingSource OrderData = new BindingSource();
             OrderData.DataSource = orders;
             DGWAllOrders.DataSource = orders;
@@ -40,6 +45,7 @@ namespace orderapp2
 
         private void BtnAddNewOrder_Click(object sender, EventArgs e)
         {
+            //creates a new form and adds it to the viewport
             AddNewOrder Addneworderfrm = new AddNewOrder();
             Addneworderfrm.Show();
             this.Hide();
