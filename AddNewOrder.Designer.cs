@@ -103,6 +103,7 @@
             // 
             // AddNewOrder
             // 
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormIsClosing);
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(352, 265);
@@ -113,6 +114,7 @@
             this.Controls.Add(this.lblDistance);
             this.Controls.Add(this.txtCustomerName);
             this.Controls.Add(this.lblCustomerName);
+            this.MaximizeBox = false;
             this.Name = "AddNewOrder";
             this.Text = "AddNewOrder";
             this.Load += new System.EventHandler(this.AddNewOrder_Load);

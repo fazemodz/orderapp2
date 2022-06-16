@@ -14,10 +14,11 @@ namespace orderapp2
     {
         private static string CustomerName, Addneworderfrm = string.Empty;
         private static decimal DistanceNeededToTravel;
-       
+      
         public AddNewOrder()
         {
             InitializeComponent();
+            
         }
 
         private void txtCustomerName_TextChanged(object sender, EventArgs e)
@@ -29,7 +30,10 @@ namespace orderapp2
         {
         
         }
-
+        private void FormIsClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
         private void btnSubmitOrderData_Click(object sender, EventArgs e)
         {
             //a recuring check to insure that the value that was entered was the correct type
