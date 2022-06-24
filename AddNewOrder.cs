@@ -12,8 +12,8 @@ namespace orderapp2
 {
     public partial class AddNewOrder : Form
     {
-        private static string CustomerName, Addneworderfrm = string.Empty;
-        private static decimal DistanceNeededToTravel;
+        private static string customerName, addneworderfrm = string.Empty;
+        private static decimal distanceNeededToTravel;
       
         public AddNewOrder()
         {
@@ -23,7 +23,7 @@ namespace orderapp2
 
         private void txtCustomerName_TextChanged(object sender, EventArgs e)
         {
-            CustomerName = txtCustomerName.Text;
+            customerName = txtCustomerName.Text;
         }
 
         private void txtDistance_TextChanged(object sender, EventArgs e)
@@ -37,7 +37,7 @@ namespace orderapp2
         private void btnSubmitOrderData_Click(object sender, EventArgs e)
         {
             //a recuring check to insure that the value that was entered was the correct type
-            if (Decimal.TryParse(txtDistance.Text, out DistanceNeededToTravel))
+            if (Decimal.TryParse(txtDistance.Text, out distanceNeededToTravel))
             {
                 //if the error text is showing disable it
                 if (lblError.Visible = true)
@@ -47,7 +47,7 @@ namespace orderapp2
                 //calculate total
                 decimal PerMilesCharge = 3;
                 decimal BookingCharge = 2;
-                decimal totalAmount = PerMilesCharge * DistanceNeededToTravel + BookingCharge;
+                decimal totalAmount = PerMilesCharge * distanceNeededToTravel + BookingCharge;
                 string PrintAmount = "£" + totalAmount.ToString();
                 lblTotal.Text = "The total is: " + PrintAmount;
                 lblTotal.Visible = true;
@@ -66,8 +66,8 @@ namespace orderapp2
             //gets the data ready to be sent 
             var payload = new OrderDataToSend
             {
-                CustomerName = CustomerName,
-                Distance = DistanceNeededToTravel,
+                CustomerName = customerName,
+                Distance = distanceNeededToTravel,
                 TotalPrice = TotalAmount
             };
             //serializes the data as the API only accepts json data 
