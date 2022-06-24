@@ -19,7 +19,10 @@ namespace orderapp2
             //initialises the form components 
             InitializeComponent();
         }
-
+        private void FormIsClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             GetAllOrders();

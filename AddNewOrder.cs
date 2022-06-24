@@ -77,7 +77,7 @@ namespace orderapp2
             var httpResponse = await httpClient.PostAsync("https://college-delevery-app-api.herokuapp.com/api/v1/orders-endpoint/Add-New-Order", httpContent);
             Form1 MainForm = new Form1();
             MainForm.Show();
-            this.Close();
+            this.Hide();
         }
         private void AddNewOrder_Load(object sender, EventArgs e)
         {
