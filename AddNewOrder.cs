@@ -74,6 +74,7 @@ namespace orderapp2
             var stringPayload = JsonConvert.SerializeObject(payload);
             var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
             var httpClient = new HttpClient();
+            //sends the data to the api
             var httpResponse = await httpClient.PostAsync("https://college-delevery-app-api.herokuapp.com/api/v1/orders-endpoint/Add-New-Order", httpContent);
             Form1 MainForm = new Form1();
             MainForm.Show();

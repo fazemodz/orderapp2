@@ -13,7 +13,7 @@ namespace orderapp2
 {
     public partial class Form1 : Form
     {
-        public static string Selectedcustomer = string.Empty;
+        public static string Selectedcustomer, IDToDelete = string.Empty;
         public Form1()
         {
             //initialises the form components 
@@ -44,8 +44,19 @@ namespace orderapp2
             DGWAllOrders.DataSource = orders;
             DGWAllOrders.BackgroundColor = Color.White;
             DGWAllOrders.RowHeadersVisible = false;
-        }
+            cbIDTodelete.DataSource = OrderData;
+            cbIDTodelete.DisplayMember = "_id";
+            cbIDTodelete.ValueMember = "_id";
 
+        }
+        private async void DeleteDeliveryData()
+        {
+            using var client = new HttpClient();
+            var uri = "http://localhost:5000/api/v1/orders-endpoint/Delete-order-by-id/" + IDToDelete;
+            var request = await client.DeleteAsync(uri);
+            GetAllOrders();
+            
+        }
         private void BtnAddNewOrder_Click(object sender, EventArgs e)
         {
             //creates a new form and adds it to the viewport
@@ -58,7 +69,19 @@ namespace orderapp2
         {
             GetAllOrders();
         }
+
+        private void btnDeleteOrder_Click(object sender, EventArgs e)
+        {
+            DeleteDeliveryData();
+        }
+
+        private void cbIDTodelete_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            IDToDelete = cbIDTodelete.Text;
+            Debug.WriteLine(IDToDelete);
+        }
     }
+    
     class OrderInfo
     {
         [Newtonsoft.Json.JsonProperty(PropertyName = "Orders")]
