@@ -52,7 +52,7 @@ namespace orderapp2
         private async void DeleteDeliveryData()
         {
             using var client = new HttpClient();
-            var uri = "http://localhost:5000/api/v1/orders-endpoint/Delete-order-by-id/" + IDToDelete;
+            var uri = "https://college-delevery-app-api.herokuapp.com/api/v1/orders-endpoint/Delete-order-by-id/" + IDToDelete;
             var request = await client.DeleteAsync(uri);
             GetAllOrders();
             
