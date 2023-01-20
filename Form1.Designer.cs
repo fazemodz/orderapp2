@@ -93,9 +93,9 @@ namespace orderapp2
             // cbIDTodelete
             // 
             this.cbIDTodelete.FormattingEnabled = true;
-            this.cbIDTodelete.Location = new System.Drawing.Point(407, 392);
+            this.cbIDTodelete.Location = new System.Drawing.Point(337, 392);
             this.cbIDTodelete.Name = "cbIDTodelete";
-            this.cbIDTodelete.Size = new System.Drawing.Size(121, 23);
+            this.cbIDTodelete.Size = new System.Drawing.Size(191, 23);
             this.cbIDTodelete.TabIndex = 7;
             this.cbIDTodelete.SelectedIndexChanged += new System.EventHandler(this.cbIDTodelete_SelectedIndexChanged);
             // 
@@ -114,7 +114,7 @@ namespace orderapp2
             this.MinimumSize = new System.Drawing.Size(1027, 489);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Form1";
+            this.Text = "Delivery App";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormIsClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGWAllOrders)).EndInit();

@@ -13,11 +13,13 @@ namespace orderapp2
 {
     public partial class Form1 : Form
     {
+        public static string APIURL = "https://college-work-api-production.up.railway.app/";
         public static string Selectedcustomer, IDToDelete = string.Empty;
         public Form1()
         {
             //initialises the form components 
             InitializeComponent();
+            
         }
         private void FormIsClosing(object sender, FormClosingEventArgs e)
         {
@@ -34,7 +36,7 @@ namespace orderapp2
             //creates a new client
             using var client = new HttpClient();
             //sends request to the api
-            var request = await client.GetAsync("https://college-delevery-app-api.herokuapp.com/api/v1/orders-endpoint/Get-All-Orders");
+            var request = await client.GetAsync(APIURL + "api/v1/orders-endpoint/Get-All-Orders");
             var response = await request.Content.ReadAsStringAsync();
             //deserializes the Json data sent from the API into a readable c# class
             var orders = JsonConvert.DeserializeObject<List<OrderInfo>>(response);
@@ -52,7 +54,8 @@ namespace orderapp2
         private async void DeleteDeliveryData()
         {
             using var client = new HttpClient();
-            var uri = "https://college-delevery-app-api.herokuapp.com/api/v1/orders-endpoint/Delete-order-by-id/" + IDToDelete;
+            var uri = APIURL + "api/v1/orders-endpoint/Delete-order-by-id/" + IDToDelete;
+            Debug.WriteLine(uri);
             var request = await client.DeleteAsync(uri);
             GetAllOrders();
             
