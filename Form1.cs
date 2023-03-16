@@ -13,7 +13,7 @@ namespace orderapp2
 {
     public partial class Form1 : Form
     {
-        public static string APIURL = "https://college-work-api-production.up.railway.app/";
+        public static string APIURL = "https://college-work-api.projectredacted.org/";
         public static string Selectedcustomer, IDToDelete = string.Empty;
         public Form1()
         {
