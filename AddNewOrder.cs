@@ -75,7 +75,7 @@ namespace orderapp2
             var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
             var httpClient = new HttpClient();
             //sends the data to the api
-            var httpResponse = await httpClient.PostAsync("https://college-work-api-production.up.railway.app/api/v1/orders-endpoint/Add-New-Order", httpContent);
+            var httpResponse = await httpClient.PostAsync("https://college-work-api.projectredacted.org/api/v1/orders-endpoint/Add-New-Order", httpContent);
             Form1 MainForm = new Form1();
             MainForm.Show();
             this.Hide();
