@@ -34,92 +34,103 @@ namespace orderapp2
         /// </summary>
         private void InitializeComponent()
         {
-            this.DGWAllOrders = new System.Windows.Forms.DataGridView();
-            this.BtnAddNewOrder = new System.Windows.Forms.Button();
-            this.btnRefreshData = new System.Windows.Forms.Button();
-            this.btnDeleteOrder = new System.Windows.Forms.Button();
-            this.cbIDTodelete = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.DGWAllOrders)).BeginInit();
-            this.SuspendLayout();
+            DGWAllOrders = new DataGridView();
+            BtnAddNewOrder = new Button();
+            btnRefreshData = new Button();
+            btnDeleteOrder = new Button();
+            cbIDTodelete = new ComboBox();
+            btn_CloseAPP = new Button();
+            ((System.ComponentModel.ISupportInitialize)DGWAllOrders).BeginInit();
+            SuspendLayout();
             // 
             // DGWAllOrders
             // 
-            this.DGWAllOrders.AllowUserToAddRows = false;
-            this.DGWAllOrders.AllowUserToDeleteRows = false;
-            this.DGWAllOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DGWAllOrders.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.DGWAllOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGWAllOrders.Location = new System.Drawing.Point(220, 15);
-            this.DGWAllOrders.Name = "DGWAllOrders";
-            this.DGWAllOrders.ReadOnly = true;
-            this.DGWAllOrders.RowTemplate.Height = 25;
-            this.DGWAllOrders.ShowCellErrors = false;
-            this.DGWAllOrders.ShowCellToolTips = false;
-            this.DGWAllOrders.ShowEditingIcon = false;
-            this.DGWAllOrders.ShowRowErrors = false;
-            this.DGWAllOrders.Size = new System.Drawing.Size(767, 353);
-            this.DGWAllOrders.TabIndex = 3;
+            DGWAllOrders.AllowUserToAddRows = false;
+            DGWAllOrders.AllowUserToDeleteRows = false;
+            DGWAllOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            DGWAllOrders.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            DGWAllOrders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DGWAllOrders.Location = new Point(220, 15);
+            DGWAllOrders.Name = "DGWAllOrders";
+            DGWAllOrders.ReadOnly = true;
+            DGWAllOrders.RowTemplate.Height = 25;
+            DGWAllOrders.ShowCellErrors = false;
+            DGWAllOrders.ShowCellToolTips = false;
+            DGWAllOrders.ShowEditingIcon = false;
+            DGWAllOrders.ShowRowErrors = false;
+            DGWAllOrders.Size = new Size(767, 423);
+            DGWAllOrders.TabIndex = 3;
             // 
             // BtnAddNewOrder
             // 
-            this.BtnAddNewOrder.Location = new System.Drawing.Point(12, 39);
-            this.BtnAddNewOrder.Name = "BtnAddNewOrder";
-            this.BtnAddNewOrder.Size = new System.Drawing.Size(190, 46);
-            this.BtnAddNewOrder.TabIndex = 4;
-            this.BtnAddNewOrder.Text = "Add new order";
-            this.BtnAddNewOrder.UseVisualStyleBackColor = true;
-            this.BtnAddNewOrder.Click += new System.EventHandler(this.BtnAddNewOrder_Click);
+            BtnAddNewOrder.Location = new Point(12, 39);
+            BtnAddNewOrder.Name = "BtnAddNewOrder";
+            BtnAddNewOrder.Size = new Size(190, 46);
+            BtnAddNewOrder.TabIndex = 4;
+            BtnAddNewOrder.Text = "Add new order";
+            BtnAddNewOrder.UseVisualStyleBackColor = true;
+            BtnAddNewOrder.Click += BtnAddNewOrder_Click;
             // 
             // btnRefreshData
             // 
-            this.btnRefreshData.Location = new System.Drawing.Point(12, 371);
-            this.btnRefreshData.Name = "btnRefreshData";
-            this.btnRefreshData.Size = new System.Drawing.Size(190, 23);
-            this.btnRefreshData.TabIndex = 5;
-            this.btnRefreshData.Text = "Refresh data";
-            this.btnRefreshData.UseVisualStyleBackColor = true;
-            this.btnRefreshData.Click += new System.EventHandler(this.btnRefreshData_Click);
+            btnRefreshData.Location = new Point(12, 104);
+            btnRefreshData.Name = "btnRefreshData";
+            btnRefreshData.Size = new Size(190, 56);
+            btnRefreshData.TabIndex = 5;
+            btnRefreshData.Text = "Refresh data";
+            btnRefreshData.UseVisualStyleBackColor = true;
+            btnRefreshData.Click += btnRefreshData_Click;
             // 
             // btnDeleteOrder
             // 
-            this.btnDeleteOrder.Location = new System.Drawing.Point(614, 392);
-            this.btnDeleteOrder.Name = "btnDeleteOrder";
-            this.btnDeleteOrder.Size = new System.Drawing.Size(188, 23);
-            this.btnDeleteOrder.TabIndex = 6;
-            this.btnDeleteOrder.Text = "Delete selected data";
-            this.btnDeleteOrder.UseVisualStyleBackColor = true;
-            this.btnDeleteOrder.Click += new System.EventHandler(this.btnDeleteOrder_Click);
+            btnDeleteOrder.Location = new Point(12, 179);
+            btnDeleteOrder.Name = "btnDeleteOrder";
+            btnDeleteOrder.Size = new Size(188, 48);
+            btnDeleteOrder.TabIndex = 6;
+            btnDeleteOrder.Text = "Delete selected data";
+            btnDeleteOrder.UseVisualStyleBackColor = true;
+            btnDeleteOrder.Click += btnDeleteOrder_Click;
             // 
             // cbIDTodelete
             // 
-            this.cbIDTodelete.FormattingEnabled = true;
-            this.cbIDTodelete.Location = new System.Drawing.Point(337, 392);
-            this.cbIDTodelete.Name = "cbIDTodelete";
-            this.cbIDTodelete.Size = new System.Drawing.Size(191, 23);
-            this.cbIDTodelete.TabIndex = 7;
-            this.cbIDTodelete.SelectedIndexChanged += new System.EventHandler(this.cbIDTodelete_SelectedIndexChanged);
+            cbIDTodelete.FormattingEnabled = true;
+            cbIDTodelete.Location = new Point(12, 243);
+            cbIDTodelete.Name = "cbIDTodelete";
+            cbIDTodelete.Size = new Size(188, 23);
+            cbIDTodelete.TabIndex = 7;
+            cbIDTodelete.SelectedIndexChanged += cbIDTodelete_SelectedIndexChanged;
+            // 
+            // btn_CloseAPP
+            // 
+            btn_CloseAPP.Location = new Point(12, 375);
+            btn_CloseAPP.Name = "btn_CloseAPP";
+            btn_CloseAPP.Size = new Size(188, 46);
+            btn_CloseAPP.TabIndex = 8;
+            btn_CloseAPP.Text = "Exit";
+            btn_CloseAPP.UseVisualStyleBackColor = true;
+            btn_CloseAPP.Click += btn_CloseAPP_Click;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 450);
-            this.Controls.Add(this.cbIDTodelete);
-            this.Controls.Add(this.btnDeleteOrder);
-            this.Controls.Add(this.btnRefreshData);
-            this.Controls.Add(this.BtnAddNewOrder);
-            this.Controls.Add(this.DGWAllOrders);
-            this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1027, 489);
-            this.MinimumSize = new System.Drawing.Size(1027, 489);
-            this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Delivery App";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormIsClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DGWAllOrders)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1011, 450);
+            Controls.Add(btn_CloseAPP);
+            Controls.Add(cbIDTodelete);
+            Controls.Add(btnDeleteOrder);
+            Controls.Add(btnRefreshData);
+            Controls.Add(BtnAddNewOrder);
+            Controls.Add(DGWAllOrders);
+            MaximizeBox = false;
+            MaximumSize = new Size(1027, 489);
+            MinimumSize = new Size(1027, 489);
+            Name = "Form1";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Delivery App";
+            FormClosing += FormIsClosing;
+            Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)DGWAllOrders).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -128,5 +139,6 @@ namespace orderapp2
         private Button btnRefreshData;
         private Button btnDeleteOrder;
         private ComboBox cbIDTodelete;
+        private Button btn_CloseAPP;
     }
 }

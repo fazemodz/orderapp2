@@ -32,7 +32,9 @@ namespace orderapp2
         }
         private void FormIsClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Hide();
         }
         private void btnSubmitOrderData_Click(object sender, EventArgs e)
         {
@@ -57,7 +59,7 @@ namespace orderapp2
             else
             {
                 //if the data type is not the desired one then throw a error 
-                lblError.Text = "A decimal value was not enterd please try again";
+                lblError.Text = "The imput " + txtDistance.Text + " is not an interger. Please re-enter";
                 lblError.Visible = true;
             }
         }

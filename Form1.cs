@@ -19,7 +19,7 @@ namespace orderapp2
         {
             //initialises the form components 
             InitializeComponent();
-            
+
         }
         private void FormIsClosing(object sender, FormClosingEventArgs e)
         {
@@ -57,8 +57,10 @@ namespace orderapp2
             var uri = APIURL + "api/v1/orders-endpoint/Delete-order-by-id/" + IDToDelete;
             Debug.WriteLine(uri);
             var request = await client.DeleteAsync(uri);
+            cbIDTodelete.Text = string.Empty;
             GetAllOrders();
-            
+
+
         }
         private void BtnAddNewOrder_Click(object sender, EventArgs e)
         {
@@ -83,14 +85,19 @@ namespace orderapp2
             IDToDelete = cbIDTodelete.Text;
             Debug.WriteLine(IDToDelete);
         }
+
+        private void btn_CloseAPP_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
-    
+
     class OrderInfo
     {
         [Newtonsoft.Json.JsonProperty(PropertyName = "Orders")]
         public int RowID;
         public string _id { get; set; }
-        public string OrderUUID  { get; set; }
+        public string OrderUUID { get; set; }
         public string CustomerName { get; set; }
         public string Distance { get; set; }
         public string TotalPrice { get; set; }
