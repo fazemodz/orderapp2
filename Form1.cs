@@ -55,7 +55,6 @@ namespace orderapp2
         {
             using var client = new HttpClient();
             var uri = APIURL + "api/v1/orders-endpoint/Delete-order-by-id/" + IDToDelete;
-            Debug.WriteLine(uri);
             var request = await client.DeleteAsync(uri);
             cbIDTodelete.Text = string.Empty;
             GetAllOrders();
@@ -83,7 +82,6 @@ namespace orderapp2
         private void cbIDTodelete_SelectedIndexChanged(object sender, EventArgs e)
         {
             IDToDelete = cbIDTodelete.Text;
-            Debug.WriteLine(IDToDelete);
         }
 
         private void btn_CloseAPP_Click(object sender, EventArgs e)
