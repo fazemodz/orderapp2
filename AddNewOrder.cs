@@ -14,11 +14,11 @@ namespace orderapp2
     {
         private static string customerName, addneworderfrm = string.Empty;
         private static decimal distanceNeededToTravel;
-      
+
         public AddNewOrder()
         {
             InitializeComponent();
-            
+
         }
 
         private void txtCustomerName_TextChanged(object sender, EventArgs e)
@@ -28,7 +28,7 @@ namespace orderapp2
 
         private void txtDistance_TextChanged(object sender, EventArgs e)
         {
-        
+
         }
         private void FormIsClosing(object sender, FormClosingEventArgs e)
         {
@@ -46,14 +46,23 @@ namespace orderapp2
                 {
                     lblError.Visible = false;
                 }
-                //calculate total
-                decimal PerMilesCharge = 3;
-                decimal BookingCharge = 2;
-                decimal totalAmount = PerMilesCharge * distanceNeededToTravel + BookingCharge;
-                string PrintAmount = "£" + totalAmount.ToString();
-                lblTotal.Text = "The total is: " + PrintAmount;
-                lblTotal.Visible = true;
-                SendData(PrintAmount);
+                if (txtDistance.Text.Contains("-"))
+                {
+                    lblError.Text = "The imput " + txtDistance.Text + " is Negative which is not allowed. Please re-enter";
+                    lblError.Visible = true;
+                }
+                else
+                {
+                    //calculate total
+                    decimal PerMilesCharge = 3;
+                    decimal BookingCharge = 2;
+                    decimal totalAmount = PerMilesCharge * distanceNeededToTravel + BookingCharge;
+                    string PrintAmount = "£" + totalAmount.ToString();
+                    lblTotal.Text = "The total is: " + PrintAmount;
+                    lblTotal.Visible = true;
+                    SendData(PrintAmount);
+                }
+              
 
             }
             else
@@ -85,6 +94,11 @@ namespace orderapp2
         private void AddNewOrder_Load(object sender, EventArgs e)
         {
             lblTotal.Visible = false;
+        }
+
+        private void lblError_Click(object sender, EventArgs e)
+        {
+
         }
     }
     class OrderDataToSend
